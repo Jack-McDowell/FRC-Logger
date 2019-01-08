@@ -12,4 +12,4 @@ FRC-Logger is a logging library designed for FIRST Robotics Competition to serve
 
 ## Code Usage
  
-See example`.java`. Better explanations are forthcoming
+See `example.java`. Better explanations are forthcoming
