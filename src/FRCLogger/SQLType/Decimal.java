@@ -25,6 +25,6 @@ public class Decimal implements Type {
      * @return "double"
      */
     @Override public String toString(){
-        return "double";
+        return "DOUBLE PRECISION";
     }
 }

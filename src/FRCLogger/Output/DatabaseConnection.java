@@ -24,7 +24,6 @@ public class DatabaseConnection implements OutputMethod {
         this.username = username;
         this.password = password;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(location, username, password);
         } catch(Exception e){
             e.printStackTrace();
@@ -41,7 +40,7 @@ public class DatabaseConnection implements OutputMethod {
      */
     @Override public void init(String tableName, String[] columnNames, String[] dataTypes){
         for(String columnName : columnNames)
-            if(!columnName.matches("(a-z|A-Z|0-9|_)+"))
+            if(!columnName.matches("[a-zA-Z0-9_]+"))
                 throw new Error("Table could not be created! Invalid column name: " + columnName);
         runQuery("DROP TABLE IF EXISTS " + tableName + ";");
         runQuery("CREATE TABLE " + tableName + "(" + IntStream.range(0, columnNames.length).mapToObj(i -> columnNames[i] + " " + dataTypes[i]).reduce((s1, s2) -> s1 + ", " + s2).get() + ");");
@@ -63,6 +62,7 @@ public class DatabaseConnection implements OutputMethod {
      * @param query The query to run
      */
     public void runQuery(String query){
+        System.out.println(query);
         try {
             if(failures > 10)
                 return;

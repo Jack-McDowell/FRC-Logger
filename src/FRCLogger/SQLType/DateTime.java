@@ -21,7 +21,7 @@ public class DateTime implements Type {
      * @return The timestamp with quotes
      */
     @Override public String reformat(Object o){
-        return "\"" + o.toString() + "\"";
+        return "'" + o.toString() + "'";
     }
 
     /**

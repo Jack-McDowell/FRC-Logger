@@ -14,7 +14,7 @@ public class Logger {
     HashMap<String, HashMap<String, Type>> implicitTables = new HashMap<>();
     HashMap<String, HashMap<String, Loggable>> implicitTableLoggers = new HashMap<>();
     HashMap<String, OutputMethod> implicitTableOutput = new HashMap<>();
-    HashMap<String, Table> tables = null;
+    HashMap<String, Table> tables = new HashMap<>();
     OutputMethod defaultOutput;
     public Logger(OutputMethod defaultOutput){
         this.defaultOutput = defaultOutput;

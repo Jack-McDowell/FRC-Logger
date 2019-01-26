@@ -38,7 +38,7 @@ public class Table {
         columns[1] = "Tick_Number";
         types[0] = new DateTime();
         types[1] = new Int();
-        if(!tableName.matches("(a-z|A-Z|0-9|_)+"))
+        if(!tableName.matches("[a-zA-Z0-9_]+"))
             throw new Error("Invalid table name " + tableName);
         table = new OutputManager(connection, tableName, columns, types);
     }

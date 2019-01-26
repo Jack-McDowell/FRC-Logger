@@ -15,8 +15,10 @@ public class LogFile implements OutputMethod {
      */
     public LogFile(String filePath){
         folder = new File(filePath);
-        if(!folder.mkdir())
+        folder.mkdir();
+        if(!folder.exists())
             throw new Error("Folder could not be created");
+        Stream.of(folder.listFiles()).forEach(f -> f.delete());
     }
 
     /**

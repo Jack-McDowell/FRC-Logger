@@ -32,11 +32,11 @@ public class Bool implements Type {
         try {
             int i = Integer.parseInt(o.toString());
             if(i == 0 || i == 1)
-                return (i == 1) ? "1" : "0";
+                return (i == 1) ? "true" : "false";
         } catch (Exception e){
-            return o.toString().toLowerCase().contains("true") ? "1" : "0";
+            return o.toString().toLowerCase().contains("true") ? "true" : "false";
         }
-        return "0";
+        return "false";
     }
 
     /**

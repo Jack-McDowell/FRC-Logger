@@ -36,7 +36,7 @@ public class Varchar implements Type {
      * @return the formatted string
      */
     @Override public String reformat(Object s){
-        return '"' + s.toString() + '"';
+        return "'" + s.toString().replaceAll("'", "\\'") + "'";
     }
 
     /**
